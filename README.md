@@ -1,6 +1,9 @@
 Backpain
 ========
 
+[![Build
+Status](https://travis-ci.org/WiserTogether/backpain.png?branch=master)](https://travis-ci.org/WiserTogether/backpain)
+
 Example application of how to structure and leverage WiserTogether code.
 
 Building
