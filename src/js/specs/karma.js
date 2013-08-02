@@ -12,22 +12,25 @@ require.config({
 
     paths: {
         // Application Dependencies
-        'chiropractor':       '../components/chiropractor/chiropractor',
-        'handlebars':         '../components/require-handlebars-plugin/Handlebars',
-        'json3':              '../components/json3/lib/json3',
-        'underscore':         '../components/underscore/underscore',
-        'backbone':           '../components/backbone/backbone',
-        'jquery':             '../components/jquery/jquery',
-        'jquery.cookie':      '../components/jquery.cookie/jquery.cookie',
-        'backbone.subroute':  '../components/backbone.subroute/backbone.subroute',
+        'chiropractor':          '../components/chiropractor/chiropractor',
+        'handlebars':            '../components/require-handlebars-plugin/Handlebars',
+        'hbs':                   '../components/require-handlebars-plugin/hbs',
+        'i18nprecompile':        '../components/require-handlebars-plugin/hbs/i18nprecompile',
+        'json2':                 '../components/require-handlebars-plugin/hbs/json2',
+        'json3':                 '../components/json3/lib/json3',
+        'underscore':            '../components/underscore/underscore',
+        'backbone':              '../components/backbone/backbone',
+        'jquery':                '../components/jquery/jquery',
+        'jquery.cookie':         '../components/jquery.cookie/jquery.cookie',
+        'backbone.subroute':     '../components/backbone.subroute/backbone.subroute',
         // Testing Dependencies
-        'sinon':              '../components/sinonjs/sinon',
-        'es5-shim':           '../components/es5-shim/es5-shim',
-        'chai':               '../components/chai/chai',
-        'expectjs':           '../components/expect/expect',
-        'expect':             'lib/expect',
-        'mocha':              'lib/mocha',
-        'browser':            'lib/browser'
+        'sinon':                 '../components/sinonjs/sinon',
+        'es5-shim':              '../components/es5-shim/es5-shim',
+        'chai':                  '../components/chai/chai',
+        'expectjs':              '../components/expect/expect',
+        'expect':                'lib/expect',
+        'mocha':                 'lib/mocha',
+        'browser':               'lib/browser'
     },
 
     pragmasOnSave: {
