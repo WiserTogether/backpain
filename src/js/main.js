@@ -1,55 +1,80 @@
-require.config({
-    packages: [
-        'backpain'
-    ],
+(function() {
+    'use strict';
 
-    hbs: {
-        disableI18n: true,
-        disableHelpers: true
-    },
+    var root = this,
+    require = root.require;
 
-    paths: {
-        'chiropractor':         '../components/chiropractor/chiropractor',
-        'handlebars':           '../components/require-handlebars-plugin/Handlebars',
-        'hbs':                  '../components/require-handlebars-plugin/hbs',
-        'i18nprecompile':       '../components/require-handlebars-plugin/hbs/i18nprecompile',
-        'json2':                '../components/require-handlebars-plugin/hbs/json2',
-        'json3':                '../components/json3/lib/json3',
-        'underscore':           '../components/underscore/underscore',
-        'jquery':               '../components/jquery/jquery',
-        'jquery.cookie':        '../components/jquery.cookie/jquery.cookie'
-    },
+    require.config({
+        packages: [
+            'backpain'
+        ],
 
-    pragmasOnSave: {
-        excludeHbsParser : true,
-        excludeHbs: true,
-        excludeAfterBuild: true
-    },
-
-    skipModuleInsertion: false,
-    wrap: true,
-
-    shim: {
-        'underscore': {
-            exports: '_'
+        hbs: {
+            disableI18n: true,
+            disableHelpers: true
         },
-        json3: {
-            exports: 'JSON'
+
+        paths: {
+            'chiropractor':         '../components/chiropractor/chiropractor',
+            'handlebars':           '../components/require-handlebars-plugin/Handlebars',
+            'hbs':                  '../components/require-handlebars-plugin/hbs',
+            'i18nprecompile':       '../components/require-handlebars-plugin/hbs/i18nprecompile',
+            'json2':                '../components/require-handlebars-plugin/hbs/json2',
+            'json3':                '../components/json3/lib/json3',
+            'underscore':           '../components/underscore/underscore',
+            'jquery':               '../components/jquery/jquery',
+            'jquery.cookie':        '../components/jquery.cookie/jquery.cookie'
         },
-        'jquery.cookie': {
-            deps: ['jquery'],
-            exports: 'jQuery.cookie'
+
+        pragmasOnSave: {
+            excludeHbsParser : true,
+            excludeHbs: true,
+            excludeAfterBuild: true
+        },
+
+        skipModuleInsertion: false,
+        wrap: true,
+
+        shim: {
+            'underscore': {
+                exports: '_'
+            },
+            json3: {
+                exports: 'JSON'
+            },
+            'jquery.cookie': {
+                deps: ['jquery'],
+                exports: 'jQuery.cookie'
+            }
+        },
+
+        deps: [
+            'hbs'
+        ],
+
+        enforceDefine: true
+    });
+
+    var count = 0,
+        updateModuleProgress = function(context, map, depMaps) {
+        count++;
+        var fetched = Object.keys(context.urlFetched).length,
+        el = root.document.getElementById('requirejs-progress');
+
+        if (fetched > 0) {
+            el.style.width = Math.max(100, count / fetched) + '%';
         }
-    },
+    };
 
-    deps: [
-        'hbs'
-    ],
 
-    enforceDefine: true
-});
+    require.onResourceLoad = function(context, map, depMaps) {
+        if (map.parentMap) {
+            updateModuleProgress(context, map, depMaps);
+        }
+    };
 
-define(function(require) {
-    var Backpain = require('backpain');
-    Backpain.initialize();
-});
+    define(function(require) {
+        var Backpain = require('backpain');
+        Backpain.initialize();
+    });
+}).call(this);
