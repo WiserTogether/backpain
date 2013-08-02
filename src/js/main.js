@@ -61,7 +61,7 @@
         var fetched = Object.keys(context.urlFetched).length,
         el = root.document.getElementById('requirejs-progress');
 
-        if (fetched > 0) {
+        if (el && fetched > 0) {
             el.style.width = Math.max(100, count / fetched) + '%';
         }
     };
