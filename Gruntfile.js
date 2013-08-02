@@ -8,8 +8,8 @@ module.exports = function(grunt) {
             compile: {
                 options: {
                     baseUrl: './src/js',
-                    out: 'build/js/backpain.js',
-                    name: 'backpain',
+                    out: 'build/js/main.js',
+                    name: 'main',
                     mainConfigFile: './src/js/main.js',
                     done: function(done, output) {
                         var duplicates = require('rjs-build-analysis').duplicates(output);
