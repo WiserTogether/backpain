@@ -59,10 +59,12 @@
         updateModuleProgress = function(context, map, depMaps) {
         count++;
         var fetched = Object.keys(context.urlFetched).length,
-        el = root.document.getElementById('requirejs-progress');
+            el = root.document.getElementById('requirejs-progress'),
+            percentLoaded;
 
         if (el && fetched > 0) {
-            el.style.width = Math.max(100, count / fetched) + '%';
+            percentLoaded = Math.min(100, (count / fetched) * 100);
+            el.style.width = percentLoaded + '%';
         }
     };
 
