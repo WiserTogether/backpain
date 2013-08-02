@@ -2,7 +2,7 @@
     'use strict';
 
     var root = this,
-    require = root.require;
+        require = root.require;
 
     require.config({
         packages: [
@@ -15,19 +15,19 @@
         },
 
         paths: {
-            'chiropractor':         '../components/chiropractor/chiropractor',
-            'handlebars':           '../components/require-handlebars-plugin/Handlebars',
-            'hbs':                  '../components/require-handlebars-plugin/hbs',
-            'i18nprecompile':       '../components/require-handlebars-plugin/hbs/i18nprecompile',
-            'json2':                '../components/require-handlebars-plugin/hbs/json2',
-            'json3':                '../components/json3/lib/json3',
-            'underscore':           '../components/underscore/underscore',
-            'jquery':               '../components/jquery/jquery',
-            'jquery.cookie':        '../components/jquery.cookie/jquery.cookie'
+            'chiropractor':    '../components/chiropractor/chiropractor',
+            'handlebars':      '../components/require-handlebars-plugin/Handlebars',
+            'hbs':             '../components/require-handlebars-plugin/hbs',
+            'i18nprecompile':  '../components/require-handlebars-plugin/hbs/i18nprecompile',
+            'json2':           '../components/require-handlebars-plugin/hbs/json2',
+            'json3':           '../components/json3/lib/json3',
+            'underscore':      '../components/underscore/underscore',
+            'jquery':          '../components/jquery/jquery',
+            'jquery.cookie':   '../components/jquery.cookie/jquery.cookie'
         },
 
         pragmasOnSave: {
-            excludeHbsParser : true,
+            excludeHbsParser: true,
             excludeHbs: true,
             excludeAfterBuild: true
         },
@@ -57,14 +57,28 @@
 
     var count = 0,
         updateModuleProgress = function(context, map, depMaps) {
-        count++;
-        var fetched = Object.keys(context.urlFetched).length,
-            el = root.document.getElementById('requirejs-progress'),
-            percentLoaded;
+            count++;
+            var fetched = Object.keys(context.urlFetched).length,
+                el = root.document.getElementById('requirejs-progress'),
+                percentLoaded;
 
-        if (el && fetched > 0) {
-            percentLoaded = Math.min(100, (count / fetched) * 100);
-            el.style.width = percentLoaded + '%';
+            if (el && fetched > 0) {
+                percentLoaded = Math.min(100, (count / fetched) * 100);
+                el.style.width = percentLoaded + '%';
+            }
+        };
+
+    require.onError = function(requireType, requireModules) {
+        var progressEl = root.document.getElementById('requirejs-progress'),
+            statusEl = root.document.getElementById('requirejs-status');
+
+        if (progressEl) {
+            progressEl.parentNode.className = progressEl.parentNode.className +
+                ' progress-danger';
+        }
+
+        if (statusEl) {
+            statusEl.innerHTML = 'Error loading application...';
         }
     };
 
