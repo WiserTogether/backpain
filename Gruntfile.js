@@ -26,6 +26,10 @@ module.exports = function(grunt) {
             }
         },
 
+        lesslint: {
+            src: ['src/less/**/*.less']
+        },
+
         less: {
             development: {
                 files: {
@@ -61,7 +65,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-devserver');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-lesslint');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'less:production', 'requirejs']);
+    grunt.registerTask('default', ['jshint', 'lesslint', 'less:production', 'requirejs']);
 };

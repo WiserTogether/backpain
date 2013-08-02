@@ -3,4 +3,9 @@ node_js:
 before_script:
   - npm install 
   - bower install 
-script: "npm test"
+script:
+  - grunt jshint
+  - grunt lesslint
+  - grunt requirejs
+  - grunt less
+  - npm test
