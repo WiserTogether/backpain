@@ -14,7 +14,11 @@ define(function(require) {
             },{
                 pattern: 'email',
                 msg: 'Please enter a valid email'
-            }]
+            }],
+            address: {
+                required: true,
+                msg: 'Please enter your mailing address'
+            }
         }
     });
 

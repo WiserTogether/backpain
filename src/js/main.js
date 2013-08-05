@@ -19,6 +19,8 @@
             'handlebars':      '../components/require-handlebars-plugin/Handlebars',
             'hbs':             '../components/require-handlebars-plugin/hbs',
             'i18nprecompile':  '../components/require-handlebars-plugin/hbs/i18nprecompile',
+            'json':            '../components/requirejs-plugins/src/json',
+            'text':            '../components/requirejs-plugins/lib/text',
             'json2':           '../components/require-handlebars-plugin/hbs/json2',
             'json3':           '../components/json3/lib/json3',
             'underscore':      '../components/underscore/underscore',
