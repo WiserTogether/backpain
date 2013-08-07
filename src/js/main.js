@@ -25,6 +25,7 @@
             'json3':           '../components/json3/lib/json3',
             'underscore':      '../components/underscore/underscore',
             'jquery':          '../components/jquery/jquery',
+            'select2':         '../components/select2/select2',
             'jquery.cookie':   '../components/jquery.cookie/jquery.cookie'
         },
 
@@ -43,6 +44,10 @@
             },
             json3: {
                 exports: 'JSON'
+            },
+            'select2': {
+                deps: ['jquery'],
+                exports: 'jQuery.fn.select2'
             },
             'jquery.cookie': {
                 deps: ['jquery'],

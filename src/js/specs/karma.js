@@ -23,6 +23,7 @@ require.config({
         'jquery':                '../components/jquery/jquery',
         'jquery.cookie':         '../components/jquery.cookie/jquery.cookie',
         'backbone.subroute':     '../components/backbone.subroute/backbone.subroute',
+        'select2':               '../components/select2/select2',
         // Testing Dependencies
         'sinon':                 '../components/sinonjs/sinon',
         'es5-shim':              '../components/es5-shim/es5-shim',
@@ -52,6 +53,10 @@ require.config({
         },
         'underscore': {
             exports: '_'
+        },
+        'select2': {
+            deps: ['jquery'],
+            exports: 'jQuery.fn.select2'
         },
         'jquery.cookie': {
             deps: ['jquery'],
