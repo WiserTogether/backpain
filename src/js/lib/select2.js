@@ -1,6 +1,6 @@
 /*global define*/
 define(function(require) {
-    var View = require('chiropractor/views/formfield');
+    var View = require('chiropractor').Views.FormField;
 
     require('select2');
 
