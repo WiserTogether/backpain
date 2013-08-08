@@ -5,7 +5,10 @@ define(function(require) {
     var describe = require('mocha').describe;
 
     return function() {
-        describe('foo', function() {
+        describe('lib', function() {
+            describe('select2', function() {
+                require('specs/lib/select2')();
+            });
         });
     };
 });

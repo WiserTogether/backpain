@@ -11,6 +11,8 @@ define(function(require) {
         footerTemplate = require('hbs!./templates/footer'),
         Main, Header, Home, Footer;
 
+    require('lib/select2');
+
     Main = Chiropractor.View.extend({
         template: mainTemplate
     });

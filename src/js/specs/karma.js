@@ -1,6 +1,6 @@
 require.config({
     packages: [
-        "backpain"
+        'backpain'
     ],
 
     baseUrl: '/base/src/js',
@@ -35,7 +35,7 @@ require.config({
     },
 
     pragmasOnSave: {
-        excludeHbsParser : true,
+        excludeHbsParser: true,
         excludeHbs: true,
         excludeAfterBuild: true
     },
@@ -70,7 +70,7 @@ require.config({
             exports: 'expect'
         },
         'sinon': {
-            exports: 'sinon',
+            exports: 'sinon'
         },
         chai: {
             deps: ['es5-shim']
