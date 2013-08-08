@@ -11,6 +11,8 @@ define(function(require) {
         it = require('mocha').it,
         Chiropractor = require('chiropractor');
 
+    require('lib/select2');
+
     return function() {
         beforeEach(function() {
             this.model = new Chiropractor.Model();
