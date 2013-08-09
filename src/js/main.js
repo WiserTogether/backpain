@@ -97,7 +97,12 @@
     };
 
     define(function(require) {
-        var Backpain = require('backpain');
-        Backpain.initialize();
+        var _ = require('underscore'),
+            Backpain = require('backpain');
+
+        // We do not want errors in initialization to be treated as RequireJS
+        // define errors, instead the initialization should be defered to
+        // immediately outside of the define step.
+        _.defer(Backpain.initialize);
     });
 }).call(this);
