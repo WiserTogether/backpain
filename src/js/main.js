@@ -75,6 +75,7 @@
             }
         };
 
+    var onError = require.onError;
     require.onError = function(requireType, requireModules) {
         var progressEl = root.document.getElementById('requirejs-progress'),
             statusEl = root.document.getElementById('requirejs-status');
@@ -86,6 +87,10 @@
 
         if (statusEl) {
             statusEl.innerHTML = 'Error loading application...';
+        }
+
+        if (onError) {
+            onError.apply(this, arguments);
         }
     };
 
@@ -100,9 +105,6 @@
         var _ = require('underscore'),
             Backpain = require('backpain');
 
-        // We do not want errors in initialization to be treated as RequireJS
-        // define errors, instead the initialization should be defered to
-        // immediately outside of the define step.
-        _.defer(Backpain.initialize);
+        Backpain.initialize();
     });
 }).call(this);
