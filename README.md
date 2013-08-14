@@ -17,7 +17,7 @@ install all of the dependencies:
 
 In order to compile the Chiropractor code for release you must run:
 
-	grunt
+    ./node_modules/grunt-cli/bin/grunt
 
 Which will generate `chiropractor.js` as well as `chiropractor.min.js` in the
 root of the project. Whenever you wish to run this command, please be sure to
@@ -28,7 +28,7 @@ Running
 
 In order to see your web application at work run this command:
 
-    grunt devserver
+    ./node_modules/grunt-cli/bin/grunt devserver
 
 And then go to `http://localhost:8888`
 
