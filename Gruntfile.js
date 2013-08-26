@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                         var duplicates = require('rjs-build-analysis').duplicates(output);
 
                         if (duplicates.length > 0) {
-                            grunt.log.subhead('Duplicates found in requirejs build:')
+                            grunt.log.subhead('Duplicates found in requirejs build:');
                             grunt.log.warn(duplicates);
                             done(new Error('r.js built duplicate modules, please check the excludes option.'));
                         }
@@ -47,7 +47,29 @@ module.exports = function(grunt) {
         },
 
         jshint: {
-            all:['src/js/*.js']
+            all:['src/js/**/*.js'],
+            options: {
+                bitwise: true,
+                browser: true,
+                browser: true,
+                curly: true,
+                eqeqeq: true,
+                immed: true,
+                jquery: true,
+                latedef: true,
+                newcap: true,
+                noarg: true,
+                node: true,
+                nonew: true,
+                plusplus: true,
+                regexp: true,
+                trailing: true,
+                undef: true,
+                globals: {
+                    define: true,
+                    require: true
+                }
+            }
         },
 
         devserver: {

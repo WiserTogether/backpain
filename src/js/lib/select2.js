@@ -1,6 +1,7 @@
 /*global define*/
 define(function(require) {
-    var View = require('chiropractor').Views.FormField;
+    var _ = require('underscore'),
+        View = require('chiropractor').Views.FormField;
 
     require('select2');
 
@@ -17,7 +18,7 @@ define(function(require) {
             if (!_(this.config.options).isEmpty()) {
                 this.select2.data = this.config.options;
             }
-            else if (this.config.url && this.config.optName, this.config.optValue) {
+            else if (this.config.url && this.config.optName && this.config.optValue) {
                 var url = this.config.url,
                     optRoot = this.config.optRoot,
                     optName = this.config.optName,

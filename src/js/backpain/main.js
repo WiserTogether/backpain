@@ -3,11 +3,11 @@ define(function(require) {
     'use strict';
 
     var _ = require('underscore'),
-        $ = require('jquery'),
-        Chiropractor = require('chiropractor'),
-        Views = require('backpain/views'),
-        Models = require('backpain/models'),
-        Router;
+       $ = require('jquery'),
+       Chiropractor = require('chiropractor'),
+       Views = require('backpain/views'),
+       Models = require('backpain/models'),
+       Router;
 
     Router = Chiropractor.Router.extend({
         routes: {

@@ -64,7 +64,7 @@
 
     var count = 0,
         updateModuleProgress = function(context, map, depMaps) {
-            count++;
+            count += 1;
             var fetched = Object.keys(context.urlFetched).length,
                 el = root.document.getElementById('requirejs-progress'),
                 percentLoaded;
