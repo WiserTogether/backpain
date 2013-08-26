@@ -23,6 +23,15 @@ define(function(require) {
     Chiropractor.Events.on(preExistingKey, function() {});
     $(window).on(preExistingKey, function() {});
 
+    function getEventData(el) {
+        if ($._data) {
+            return $._data(el.get(0)).events || {};
+        }
+        else {
+            return el.data('events');
+        }
+    }
+
     return function() {
         var checkEventCleanup;
 
@@ -53,7 +62,7 @@ define(function(require) {
             /* jQuery Event Cleanup */
             jQueryListeners = 0;
             _(this.jQueryEventObjects).each(function(obj) {
-                var events = obj.data('events');
+                var events = getEventData(obj);
                 if (events && _(events).size() > 0) {
                     _(events).each(function(typeEvents, type) {
                         _(typeEvents).each(function(event) {
@@ -128,7 +137,7 @@ define(function(require) {
                     this._eventLeakRegister = true;
                     jQueryEventObjects.push(this);
 
-                    var events = this.data('events');
+                    var events = getEventData(this);
                     if (events) {
                         _(events).each(function(typeEvents, type) {
                             _(typeEvents).each(function(event) {
@@ -193,10 +202,10 @@ define(function(require) {
                     var noop = function() {};
                     var el = $(window);
 
-                    expect(el.data('events')[preExistingKey])
+                    expect(getEventData(el)[preExistingKey])
                         .to.be.an('array');
 
-                    expect(el.data('events')[preExistingKey].length)
+                    expect(getEventData(el)[preExistingKey].length)
                         .to.equal(1);
 
                     expect(this.check).to.not.throwError();
@@ -204,14 +213,14 @@ define(function(require) {
                     el.on(preExistingKey, noop);
 
                     try {
-                        expect(el.data('events')[preExistingKey].length)
+                        expect(getEventData(el)[preExistingKey].length)
                             .to.equal(2);
 
                         expect(this.check).to.throwError();
 
                         el.off(preExistingKey, noop);
 
-                        expect(el.data('events')[preExistingKey].length)
+                        expect(getEventData(el)[preExistingKey].length)
                             .to.equal(1);
 
                         expect(this.check).to.not.throwError();

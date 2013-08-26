@@ -13,7 +13,7 @@
     "chai": "~1.7.2",
     "es5-shim": "2.1.0",
     "expect": "~0.2.0",
-    "less": "~1.4.2",
+    "less.js": "~1.4.2",
     "sinonjs": "1.7.1"
   },
   "ignore": [
@@ -25,8 +25,5 @@
     "node_modules",
     "specs",
     "src"
-  ],
-  "resolutions": {
-    "jquery": "~1.7.2"
-  }
+  ]
 }
