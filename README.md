@@ -6,22 +6,29 @@ Status](https://travis-ci.org/WiserTogether/backpain.png?branch=master)](https:/
 
 Example application of how to structure and leverage WiserTogether code.
 
+Usage and keeping up to date
+----------------------------
+
+In order to use this project, you should first create your own repository, and clone it locally for work. Then,
+run the following commands to add a secondary remote and to merge in code from the remote. It is important to note
+that these commands will generate a merge commit, which is necessary to ensure that you do not have to continue
+re-resolving conflicts
+
+    git remote add backpain git@github.com:WiserTogether/backpain.git
+    git pull backpain master
+
+
 Building
 --------
 
-To get started developing Chiropractor you must first run two commands to
-install all of the dependencies:
+To get started you will need to install all of the dependencies:
 
     npm install
     bower install
 
-In order to compile the Chiropractor code for release you must run:
+In order to compile the code for release you must run:
 
     ./node_modules/grunt-cli/bin/grunt
-
-Which will generate `chiropractor.js` as well as `chiropractor.min.js` in the
-root of the project. Whenever you wish to run this command, please be sure to
-increment the version defined in `package.json` as well as `bower.json`.
 
 Running
 -------
@@ -43,3 +50,6 @@ Or if you want more control over how your tests are run (such as continuous
 testing with auto-running tests on file changes you can run:
 
 	./node_modules/.bin/karma start --dev --browsers Chrome,PhantomJS
+
+
+
