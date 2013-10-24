@@ -1,0 +1,29 @@
+{
+  "name": "backpain",
+  "version": "0.1.0",
+  "dependencies": {
+    "chiropractor": ">=0.1.0",
+    "requirejs": "~2.1.8",
+    "bootstrap": "<3.0",
+    "select2": "~3.4.1",
+    "requirejs-plugins": "~1.0.2",
+    "modernizr": "~2.6.2"
+  },
+  "devDependencies": {
+    "chai": "~1.7.2",
+    "es5-shim": "2.1.0",
+    "expect": "~0.2.0",
+    "less.js": "~1.4.2",
+    "sinonjs": "1.7.1"
+  },
+  "ignore": [
+    "Gruntfile.js",
+    "bower_components",
+    "build.js",
+    "karma.conf.js",
+    "lib",
+    "node_modules",
+    "specs",
+    "src"
+  ]
+}

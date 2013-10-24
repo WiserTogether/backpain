@@ -1,0 +1,11 @@
+node_js:
+    - "0.8"
+before_script:
+  - npm install 
+  - bower install 
+script:
+  - grunt jshint
+  - grunt lesslint
+  - grunt requirejs
+  - grunt less
+  - npm test
