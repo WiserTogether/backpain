@@ -1,0 +1,19 @@
+<table class="general-table table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Treatment</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody class="ui-sortable">
+     {{#each collection.models }}
+        <tr class=" ">
+          <td><i class="icon-drag"></i><input class="list-checkbox" type="checkbox" name="disable[]" id="row0" value="health-service-ge-jb1-2013/ghs-2"><label class="checkbox-label" for="row0">&nbsp;</label></td>
+          <td>{{ attributes.name }}</td>
+          <td></td>
+        </tr>
+      {{/each}}
+
+    </tbody>
+  </table>

@@ -9,6 +9,7 @@ define(function(require) {
         headerTemplate = require('hbs!./templates/header'),
         homeTemplate = require('hbs!./templates/home'),
         footerTemplate = require('hbs!./templates/footer'),
+        Search = require('backpain/views/search/index'),
         Main, Header, Home, Footer;
 
     require('lib/select2');
@@ -33,6 +34,7 @@ define(function(require) {
         Main: Main,
         Home: Home,
         Header: Header,
-        Footer: Footer
+        Footer: Footer,
+        Search: Search
     };
 });
