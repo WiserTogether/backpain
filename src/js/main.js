@@ -107,6 +107,5 @@
 
      define(function(require) {
         var Backpain = require('backpain/init');
-        window.Backpain = Backpain;
     });
 }).call(this);
