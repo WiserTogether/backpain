@@ -44,15 +44,15 @@ Alternatively Run Method
 
 To run with autocompile and jshint you can use this command:
 
-./node_modules/grunt-cli/bin/grunt server
+    ./node_modules/grunt-cli/bin/grunt server
 
 To test the optimized version:
 
-http://localhost:8888/index.html
+    http://localhost:8888/index.html
 
 To test the development version:
 
-http://localhost:8888/dev.html
+    http://localhost:8888/dev.html
 
 
 Tests
