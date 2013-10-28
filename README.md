@@ -39,6 +39,22 @@ In order to see your web application at work run this command:
 
 And then go to `http://localhost:8888`
 
+Alternatively Run Method
+-------
+
+To run with autocompile and jshint you can use this command:
+
+./node_modules/grunt-cli/bin/grunt server
+
+To test the optimized version:
+
+http://localhost:8888/index.html
+
+To test the development version:
+
+http://localhost:8888/dev.html
+
+
 Tests
 -----
 
