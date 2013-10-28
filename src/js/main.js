@@ -104,11 +104,9 @@
             updateModuleProgress(context, map, depMaps);
         }
     };
-    // Need to do this AMD style for the optimizer to work correctly...
-     define(function(require) {
-        var _ = require('underscore'),
-            Backpain = require('backpain/init');
 
+     define(function(require) {
+        var Backpain = require('backpain/init');
         window.Backpain = Backpain;
     });
 }).call(this);

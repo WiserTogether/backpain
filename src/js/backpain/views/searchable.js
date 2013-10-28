@@ -46,7 +46,6 @@ define(function (require) {
             var search = new SearchableCollection({
             });
             search.url = App.settings.API_ROOT + options.query + query.term;
-            console.log(search.url);
             search.fetch().done(function () {
               var results = {};
               var rows = [];

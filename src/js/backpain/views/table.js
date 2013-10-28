@@ -18,23 +18,17 @@ define(function (require) {
       Searchable.prototype.initialize.apply(this, arguments);
       this.listenTo(this, 'renderTable', this.renderTable);
     },
-    // Generic Render of Select on Demand
     renderTable: function (options) {
       var model = new Search();
       model.url = App.settings.API_ROOT + 'topics/topic/' + options.id;
-
       model.fetch().done(function() {
         var treatments = model.get('relations.condition-treatment.topics');
         var collection = new SearchableCollection();
         _.each(treatments,function(treatment) {
-          var treatment = new Search({ name: treatment.name });
-          collection.add(treatment);
+          collection.add(new Search({ name: treatment.name }));
         });
         var table = new Table({ collection: collection });
-
         $('#table-container').append(table.render().el);
-        console.log(collection);
-
       });
     }
   });
