@@ -8,7 +8,7 @@ module.exports = function(grunt) {
             compile: {
                 options: {
                     baseUrl: './src/js',
-                    out: 'build/js/main.js',
+                    out: 'src/build/js/main.js',
                     name: 'main',
                     mainConfigFile: './src/js/main.js',
                     done: function(done, output) {
@@ -41,11 +41,33 @@ module.exports = function(grunt) {
                     yuicompress: true
                 },
                 files: {
-                    "build/css/main.css": "src/less/main.less"
+                    "src/build/css/main.css": "src/less/main.less"
                 }
             }
         },
-
+        watch: {
+          scripts: {
+            files: 'src/js/**/*.js',
+            tasks: ['jshint','requirejs'],
+            options: {
+              interrupt: true
+            }
+          },
+          templates: {
+            files: 'src/js/**/*.hbs',
+            tasks: ['jshint','requirejs'],
+            options: {
+              interrupt: true
+            }
+          },
+          stylesheets: {
+            files: ['src/less/*.less'],
+            tasks: ['less'],
+            options: {
+              interrupt: true
+            }
+          }
+        },
         jshint: {
             all:['src/js/**/*.js'],
             options: {
@@ -88,6 +110,24 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-devserver');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-lesslint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+
+    grunt.registerTask('runNode', function () {
+        grunt.util.spawn({
+          cmd: 'node',
+          args: ['./node_modules/nodemon/nodemon.js', '--debug', 'index.js'],
+          opts: {
+            stdio: 'inherit'
+          }
+        }, function () {
+          grunt.fail.fatal(new Error("nodemon quit"));
+        });
+    });
+
+    grunt.registerTask('compile', ['jshint', 'requirejs', 'less']);
+
+    // Run the server and watch for file changes
+    grunt.registerTask('server', ['runNode','compile', 'watch']);
 
     // Default task(s).
     grunt.registerTask('default', ['jshint', 'lesslint', 'less:production', 'requirejs']);

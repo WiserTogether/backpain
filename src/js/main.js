@@ -42,6 +42,9 @@
             'underscore': {
                 exports: '_'
             },
+            'chiropractor': {
+                deps: ['underscore']
+            },
             json3: {
                 exports: 'JSON'
             },
@@ -56,7 +59,8 @@
         },
 
         deps: [
-            'hbs'
+            'hbs',
+            'underscore'
         ],
 
         enforceDefine: true
@@ -101,10 +105,7 @@
         }
     };
 
-    define(function(require) {
-        var _ = require('underscore'),
-            Backpain = require('backpain');
-
-        Backpain.initialize();
+     define(function(require) {
+        var Backpain = require('backpain/init');
     });
 }).call(this);

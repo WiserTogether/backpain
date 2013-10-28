@@ -12,26 +12,26 @@ require.config({
 
     paths: {
         // Application Dependencies
-        'chiropractor':          '../components/chiropractor/chiropractor',
-        'handlebars':            '../components/require-handlebars-plugin/Handlebars',
-        'hbs':                   '../components/require-handlebars-plugin/hbs',
-        'i18nprecompile':        '../components/require-handlebars-plugin/hbs/i18nprecompile',
-        'json2':                 '../components/require-handlebars-plugin/hbs/json2',
-        'json3':                 '../components/json3/lib/json3',
-        'underscore':            '../components/underscore/underscore',
-        'backbone':              '../components/backbone/backbone',
-        'jquery':                '../components/jquery/jquery',
-        'jquery.cookie':         '../components/jquery.cookie/jquery.cookie',
-        'backbone.subroute':     '../components/backbone.subroute/backbone.subroute',
-        'select2':               '../components/select2/select2',
+        'chiropractor': '../components/chiropractor/chiropractor',
+        'handlebars': '../components/require-handlebars-plugin/Handlebars',
+        'hbs': '../components/require-handlebars-plugin/hbs',
+        'i18nprecompile': '../components/require-handlebars-plugin/hbs/i18nprecompile',
+        'json2': '../components/require-handlebars-plugin/hbs/json2',
+        'json3': '../components/json3/lib/json3',
+        'underscore': '../components/underscore/underscore',
+        'backbone': '../components/backbone/backbone',
+        'jquery': '../components/jquery/jquery',
+        'jquery.cookie': '../components/jquery.cookie/jquery.cookie',
+        'backbone.subroute': '../components/backbone.subroute/backbone.subroute',
+        'select2': '../components/select2/select2',
         // Testing Dependencies
-        'sinon':                 '../components/sinonjs/sinon',
-        'es5-shim':              '../components/es5-shim/es5-shim',
-        'chai':                  '../components/chai/chai',
-        'expectjs':              '../components/expect/expect',
-        'expect':                'lib/expect',
-        'mocha':                 'lib/mocha',
-        'browser':               'lib/browser'
+        'sinon': '../components/sinonjs/sinon',
+        'es5-shim': '../components/es5-shim/es5-shim',
+        'chai': '../components/chai/chai',
+        'expectjs': '../components/expect/expect',
+        'expect': 'lib/expect',
+        'mocha': 'lib/mocha',
+        'browser': 'lib/browser'
     },
 
     pragmasOnSave: {
@@ -58,6 +58,9 @@ require.config({
             deps: ['jquery'],
             exports: 'jQuery.fn.select2'
         },
+        'chiropractor': {
+            deps: ['underscore']
+        },
         'jquery.cookie': {
             deps: ['jquery'],
             exports: 'jQuery.cookie'
@@ -83,7 +86,7 @@ require([
     'require',
     'specs/setup/mocha',
     'specs/main'
-], function(require, mochaSetup, testSuite) {
+], function (require, mochaSetup, testSuite) {
     mochaSetup();
     testSuite();
     window.__karma__.start();
